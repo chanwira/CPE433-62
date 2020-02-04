@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-
 namespace DNWS
 {
   class Clientinfo : IPlugin
@@ -36,7 +35,7 @@ namespace DNWS
       StringBuilder sb = new StringBuilder();
       sb.Append("<html><body>");
       
-      
+
       sb.Append("Client IP: ");
       sb.Append(IP[0]);
       sb.Append("<br><br>");
