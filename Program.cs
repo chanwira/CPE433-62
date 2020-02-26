@@ -289,20 +289,36 @@ namespace DNWS
             _parent.Log("Server started at port " + _port + ".");
             while (true)
             {
-                try
+                
+
+
+
+
+                  try
                 {
                     // Wait for client
                     clientSocket = serverSocket.Accept();
                     // Get one, show some info
                     _parent.Log("Client accepted:" + clientSocket.RemoteEndPoint.ToString());
                     HTTPProcessor hp = new HTTPProcessor(clientSocket, _parent);
-                    hp.Process();
+          
+
+                    Thread t = new Thread(() => foo(hp));
+                    t.Start();
                 }
-                catch (Exception ex)
+
+                catch (InterruptedException ex)
                 {
                     _parent.Log("Server starting error: " + ex.Message + "\n" + ex.StackTrace);
                 }
+
             }
+            private void foo(HTTPProcessor hp) 
+            { 
+                hp.Process();
+            }
+
+             
         }
     }
 }
