@@ -289,10 +289,6 @@ namespace DNWS
             _parent.Log("Server started at port " + _port + ".");
             while (true)
             {
-                
-
-
-
 
                   try
                 {
