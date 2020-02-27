@@ -301,20 +301,20 @@ namespace DNWS
 
                     Thread t = new Thread(() => foo(hp));
                     t.Start();
+                    //hp.Process();
+
                 }
 
-                catch (InterruptedException ex)
+                catch (Exception ex)
                 {
                     _parent.Log("Server starting error: " + ex.Message + "\n" + ex.StackTrace);
                 }
 
-            }
-            private void foo(HTTPProcessor hp) 
-            { 
-                hp.Process();
-            }
-
-             
+            }     
+        }
+        private void foo(HTTPProcessor hp) 
+        { 
+          hp.Process();
         }
     }
 }
